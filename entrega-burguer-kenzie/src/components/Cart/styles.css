@@ -1,0 +1,211 @@
+.cart-contents {
+  display: flex;
+  flex-direction: column;
+
+  width: 92%;
+  height: 210px;
+  margin: 15px 15px 0 15px;
+}
+
+.title-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-family: "Inter";
+  font-style: normal;
+
+  width: 100%;
+  min-height: 40px;
+
+  background: #27ae60;
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.title-shoppingCar {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+
+  margin-left: 10px;
+}
+
+.cart-list-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Inter";
+  font-style: normal;
+
+  width: 100%;
+  height: 100%;
+
+  background: #f5f5f5;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.empety-bag {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+
+  color: #333333;
+}
+
+.add-items {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 24px;
+
+  color: #828282;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+
+  background: #f5f5f5;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.cart-card {
+  display: flex;
+  margin: 15px 18px 0 18px;
+}
+
+.card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #e0e0e0;
+  border-radius: 5px;
+  width: 80px;
+  height: 60px;
+}
+
+.card-img img {
+  width: 50px;
+  height: 50px;
+}
+
+.info-card {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  font-family: "Inter";
+  font-style: normal;
+
+  width: 100%;
+  gap: 5px;
+
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+.nameProduct-delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nameProduct-delete h3 {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+
+  color: #333333;
+}
+
+.nameProduct-delete p {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+
+  color: #bdbdbd;
+}
+
+.nameProduct-delete p:hover {
+  cursor: pointer;
+  color: #27ae60;
+}
+
+.info-card span {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+
+  color: #828282;
+}
+
+@media (min-width: 414px) {
+  .card-img {
+  }
+
+  .nameProduct-delete h3 {
+  }
+}
+
+@media (min-width: 500px) {
+  .card-img {
+    width: 100px;
+    height: 70px;
+  }
+
+  .card-img img {
+    width: 80px;
+    height: 60px;
+  }
+
+  .info-card {
+    margin-top: 10px;
+  }
+
+  .nameProduct-delete p {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 900px) {
+  .cart-contents {
+    width: 65%;
+    height: 410px;
+    margin: 15px 0 0 0;
+  }
+  .card-img {
+    width: 100px;
+    height: 70px;
+  }
+
+  .card-img img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nameProduct-delete h3 {
+    font-size: 12px;
+  }
+
+  .nameProduct-delete p {
+    font-size: 10px;
+  }
+
+  .info-card {
+    margin-top: 5px;
+  }
+
+  .title-content {
+    min-height: 50px;
+  }
+
+  .title-shoppingCar {
+    font-size: 16px;
+  }
+}

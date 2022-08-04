@@ -1,0 +1,14 @@
+.list-contents {
+  display: flex;
+  width: 100%;
+  margin: 15px 15px 0 15px;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+@media (min-width: 900px) {
+  .list-contents {
+    flex-wrap: wrap;
+    margin: 15px 0 0 0;
+  }
+}
