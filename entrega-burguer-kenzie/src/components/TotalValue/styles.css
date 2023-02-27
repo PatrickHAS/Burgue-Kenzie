@@ -67,6 +67,10 @@
   border-radius: 5px;
 }
 
+.total-value button:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 900px) {
   .value-delete {
     height: 100px;

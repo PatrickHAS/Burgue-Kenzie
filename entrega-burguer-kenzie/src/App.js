@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-
-import "./App.css";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
 import ProductsList from "./components/ProductsList";
+
+import "./App.css";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -18,21 +18,23 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
-  function showProducts(text) {
+  function showProducts(product) {
     const filter = products.filter(
-      (item) => item.name === text || item.category === text
+      (item) => item.name.includes(product) || item.category.includes(product)
     );
     return setFilteredProducts(filter);
   }
 
   function handleClick(productId) {
     const id = products.find((product) => product.id === productId);
-    const isTrue = currentSale.find((p) => {
+    const exists = currentSale.find((p) => {
       return p.id === productId;
     });
-    if (isTrue) {
+
+    if (exists) {
       return alert("Esse produto já está no carrinho");
     }
+
     return setCurrentSale([...currentSale, id]);
   }
 

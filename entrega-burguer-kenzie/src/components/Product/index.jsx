@@ -1,6 +1,6 @@
 import "./styles.css";
 
-function Product({ products, filteredProducts, handleClick, soma }) {
+function Product({ products, filteredProducts, handleClick }) {
   return (
     <>
       {filteredProducts.length >= 1
