@@ -17,7 +17,6 @@ function Header({ showProducts }) {
             className="input"
             type="text"
             placeholder="Digitar Pesquisa"
-            value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
           <button
