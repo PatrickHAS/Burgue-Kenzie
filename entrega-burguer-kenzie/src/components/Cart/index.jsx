@@ -1,4 +1,5 @@
 import TotalValue from "../TotalValue";
+import { TbPaperBagOff } from "react-icons/tb";
 import "./styles.css";
 
 function Cart({ currentSale, deleteList, setCurrentSale }) {
@@ -34,6 +35,7 @@ function Cart({ currentSale, deleteList, setCurrentSale }) {
       ) : (
         <div className="cart-list-contents">
           <h3 className="empety-bag">Sua sacola está vazia</h3>
+          <TbPaperBagOff className="icons" />
           <p className="add-items">Adicione itens</p>
         </div>
       )}

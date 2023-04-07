@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
 import ProductsList from "./components/ProductsList";
+import { toast, ToastContainer } from "react-toastify";
 
 import "./App.css";
 
@@ -19,8 +20,13 @@ function App() {
   }, []);
 
   function showProducts(product) {
+    if (!product) {
+      return setFilteredProducts(product);
+    }
     const filter = products.filter(
-      (item) => item.name.includes(product) || item.category.includes(product)
+      (item) =>
+        item.name.toLowerCase().includes(product) ||
+        item.category.toLowerCase().includes(product)
     );
     return setFilteredProducts(filter);
   }
@@ -32,8 +38,28 @@ function App() {
     });
 
     if (exists) {
-      return alert("Esse produto já está no carrinho");
+      return toast.error("Esse produto já está no carrinho", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
+
+    toast.success("Produto adicionado no carrinho", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
     return setCurrentSale([...currentSale, id]);
   }
@@ -42,6 +68,16 @@ function App() {
     let newList = [...currentSale];
     newList.splice(index, 1);
     setCurrentSale(newList);
+    return toast.warning("Produto removido do carrinho", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }
 
   return (
@@ -66,10 +102,12 @@ function App() {
             currentSale={currentSale}
             deleteList={deleteList}
             cartTotal={cartTotal}
+            setCartTotal={setCartTotal}
             setCurrentSale={setCurrentSale}
           />
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }
