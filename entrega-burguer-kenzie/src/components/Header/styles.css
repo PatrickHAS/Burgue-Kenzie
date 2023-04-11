@@ -18,6 +18,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+
+  @media (min-width: 900px) {
+    margin-top: 0;
+  }
 }
 
 .title-burgueKenzie {
@@ -91,7 +96,7 @@
   background: #27ae60;
   color: white;
   border: 2px solid #27ae60;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .btn-search:hover {
