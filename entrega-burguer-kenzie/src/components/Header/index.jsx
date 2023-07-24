@@ -1,9 +1,6 @@
-import { useState } from "react";
 import "./styles.css";
 
-function Header({ showProducts }) {
-  const [inputValue, setInputValue] = useState("");
-
+function Header({ showProducts, inputValue, setInputValue }) {
   return (
     <div className="header-contents">
       <div className="title-header">

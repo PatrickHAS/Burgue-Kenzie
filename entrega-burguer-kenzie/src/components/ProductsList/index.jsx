@@ -1,4 +1,5 @@
 import Product from "../Product";
+import { useEffect } from "react";
 
 import "./styles.css";
 
@@ -9,7 +10,14 @@ function ProductsList({
   setFilteredProducts,
   handleClick,
   soma,
+  inputValue,
 }) {
+  useEffect(() => {
+    if (inputValue === "") {
+      setFilteredProducts(products);
+    }
+  }, [inputValue, products, setFilteredProducts]);
+
   return (
     <ul className="list-contents">
       <Product
