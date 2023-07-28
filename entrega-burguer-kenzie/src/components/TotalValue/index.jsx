@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 function TotalValue({ currentSale, setCurrentSale }) {
   const saldo = currentSale?.reduce((valorAnterior, valorAtual) => {
-    return (valorAnterior += valorAtual.price);
+    return valorAnterior + valorAtual.price * valorAtual.quantity;
   }, 0);
 
   return (

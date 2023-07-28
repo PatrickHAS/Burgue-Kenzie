@@ -1,8 +1,29 @@
 import TotalValue from "../TotalValue";
 import { TbPaperBagOff } from "react-icons/tb";
+import { FaTrashAlt } from "react-icons/fa";
 import "./styles.css";
 
 function Cart({ currentSale, deleteList, setCurrentSale }) {
+  function incrementQuantity(productId) {
+    setCurrentSale((prevSale) =>
+      prevSale.map((product) =>
+        product.id === productId
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
+  }
+
+  function decrementQuantity(productId) {
+    setCurrentSale((prevSale) =>
+      prevSale.map((product) =>
+        product.id === productId
+          ? { ...product, quantity: Math.max(product.quantity - 1, 1) }
+          : product
+      )
+    );
+  }
+
   return (
     <div className="cart-contents">
       <div className="title-content">
@@ -19,8 +40,21 @@ function Cart({ currentSale, deleteList, setCurrentSale }) {
                 </div>
                 <div className="info-card">
                   <div className="nameProduct-delete">
-                    <h3>{card.name}</h3>
-                    <p onClick={() => deleteList(index)}>Remover</p>
+                    <div className="quantity-product">
+                      <h3>{card.name}</h3>
+                      <div className="quantity-controls">
+                        <button onClick={() => decrementQuantity(card.id)}>
+                          -
+                        </button>
+                        <span>{card.quantity}</span>
+                        <button onClick={() => incrementQuantity(card.id)}>
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <p onClick={() => deleteList(index)}>
+                      <FaTrashAlt />
+                    </p>
                   </div>
                   <span>{card.category}</span>
                 </div>

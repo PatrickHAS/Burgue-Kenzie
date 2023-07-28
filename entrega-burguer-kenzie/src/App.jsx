@@ -12,7 +12,6 @@ function App() {
   const [currentSale, setCurrentSale] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   const [inputValue, setInputValue] = useState("");
-  console.log(inputValue);
 
   useEffect(() => {
     fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
@@ -61,6 +60,8 @@ function App() {
       progress: undefined,
       theme: "light",
     });
+
+    id.quantity = 1;
 
     return setCurrentSale([...currentSale, id]);
   }
