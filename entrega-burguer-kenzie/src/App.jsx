@@ -3,6 +3,7 @@ import Cart from "./components/Cart";
 import Header from "./components/Header";
 import ProductsList from "./components/ProductsList";
 import { toast, ToastContainer } from "react-toastify";
+import { useMediaQuery } from "react-responsive";
 
 import "./App.css";
 
@@ -19,6 +20,28 @@ function App() {
       .then((reponse) => setProducts(reponse))
       .catch((err) => console.log(err));
   }, []);
+
+  const isMobile = useMediaQuery({ maxWidth: 480 });
+
+  const handleRemoveAll = () => {
+    setCurrentSale([]);
+    toast.warning("Todos os produtos removidos do carrinho", {
+      position: isMobile ? "top-center" : "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      style: {
+        width: isMobile ? "80%" : "310px",
+        margin: isMobile ? "0 auto" : "default",
+        marginTop: isMobile ? "20px" : "default",
+        borderRadius: isMobile ? "5px" : "default",
+      },
+    });
+  };
 
   function showProducts(product) {
     const filter = products.filter(
@@ -39,26 +62,38 @@ function App() {
 
     if (exists) {
       return toast.error("Esse produto já está no carrinho", {
-        position: "top-right",
-        autoClose: 5000,
+        position: isMobile ? "top-center" : "top-right",
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
         theme: "light",
+        style: {
+          width: isMobile ? "80%" : "310px",
+          margin: isMobile ? "0 auto" : "default",
+          marginTop: isMobile ? "20px" : "default",
+          borderRadius: isMobile ? "5px" : "default", // Defina a largura conforme a tela (mobile ou desktop)
+        },
       });
     }
 
     toast.success("Produto adicionado no carrinho", {
-      position: "top-right",
-      autoClose: 5000,
+      position: isMobile ? "top-center" : "top-right",
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
       theme: "light",
+      style: {
+        width: isMobile ? "80%" : "310px",
+        margin: isMobile ? "0 auto" : "default",
+        marginTop: isMobile ? "20px" : "default",
+        borderRadius: isMobile ? "5px" : "default", // Defina a largura conforme a tela (mobile ou desktop)
+      },
     });
 
     id.quantity = 1;
@@ -71,14 +106,20 @@ function App() {
     newList.splice(index, 1);
     setCurrentSale(newList);
     return toast.warning("Produto removido do carrinho", {
-      position: "top-right",
-      autoClose: 5000,
+      position: isMobile ? "top-center" : "top-right",
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
       theme: "light",
+      style: {
+        width: isMobile ? "80%" : "310px",
+        margin: isMobile ? "0 auto" : "default",
+        marginTop: isMobile ? "20px" : "default",
+        borderRadius: isMobile ? "5px" : "default", // Defina a largura conforme a tela (mobile ou desktop)
+      },
     });
   }
 
@@ -110,6 +151,7 @@ function App() {
             cartTotal={cartTotal}
             setCartTotal={setCartTotal}
             setCurrentSale={setCurrentSale}
+            handleRemoveAll={handleRemoveAll}
           />
         </div>
       </div>

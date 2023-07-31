@@ -1,7 +1,6 @@
 import "./styles.css";
-import { toast } from "react-toastify";
 
-function TotalValue({ currentSale, setCurrentSale }) {
+function TotalValue({ currentSale, setCurrentSale, handleRemoveAll }) {
   const saldo = currentSale?.reduce((valorAnterior, valorAtual) => {
     return valorAnterior + valorAtual.price * valorAtual.quantity;
   }, 0);
@@ -20,24 +19,7 @@ function TotalValue({ currentSale, setCurrentSale }) {
               })}
             </span>
           </div>
-          <button
-            onClick={() => (
-              // eslint-disable-next-line no-sequences
-              setCurrentSale([]),
-              toast.warning("Todos os produtos removido do carrinho", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              })
-            )}
-          >
-            Remover todos
-          </button>
+          <button onClick={() => handleRemoveAll()}>Remover todos</button>
         </div>
       </div>
     </>

@@ -3,7 +3,7 @@ import { TbPaperBagOff } from "react-icons/tb";
 import { FaTrashAlt } from "react-icons/fa";
 import "./styles.css";
 
-function Cart({ currentSale, deleteList, setCurrentSale }) {
+function Cart({ currentSale, deleteList, setCurrentSale, handleRemoveAll }) {
   function incrementQuantity(productId) {
     setCurrentSale((prevSale) =>
       prevSale.map((product) =>
@@ -64,6 +64,7 @@ function Cart({ currentSale, deleteList, setCurrentSale }) {
           <TotalValue
             currentSale={currentSale}
             setCurrentSale={setCurrentSale}
+            handleRemoveAll={handleRemoveAll}
           />
         </>
       ) : (
